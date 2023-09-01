@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="">
+    <title>Sudoku</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="sudoku-title text-center text-light my-3 shadow">🎰 Sudoku</h3>
+        <div class="sudoku-board-controls my-3">
+            <div>
+                <button class="btn btn-secondary sudoku-button" id="check-button">Check</button>
+            </div>
+            <div>
+                <button class="btn btn-info me-4 sudoku-button" id="new-game">New Game</button>
+            </div>
+            <div>
+                <button class="btn me-4 sudoku-button text-light" id="timer"></button>
+
+            </div>
+            <div>
+                <h4 class="sudoku-checks text-light"><span class="checks-count">0</span> check(s)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="sudoku-board"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="digit-panel" id="digit-panel"></div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="mode-alert">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-info sudoku-modal-content">
+                    <div class="modal-header sudoku-modal-header">
+                        <h1 class="modal-title fs-5 text-light">Sudoku Details</h1>
+                        <button type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body sudoku-modal-body">
+                        <h5 class="text-light">Number Of Checks: <span class="checks-count"></span></h5>
+                        <h5 class="grade text-success"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
