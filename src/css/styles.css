@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: rgb(9, 1, 112)
+}
+
+#digit-panel {
+    display: flex;
+    flex-wrap: wrap;
+    width: 144px;
+    height: 144px;
+    background-color: rgb(40, 226, 40);
+    box-shadow: rgba(35, 35, 114, 0.25) 0px 13px 27px -5px, rgba(12, 9, 9, 0.3) 0px 8px 16px -8px;
+}
+
+#digit-panel :hover {
+    background-color: rgb(215, 252, 253);
+    cursor: pointer;
+}
+
+#errors {
+    color: coral;
+}
+
+#sudoku-board {
+    width: 436px;
+    height: 450px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.sudoku-tile {
+    width: 48px;
+    height: 48px;
+    border: 1px solid lightgray;
+    background-color: azure;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(90, 89, 89);
+}
+
+#sudoku-board :hover {
+    background-color: rgb(118, 118, 250);
+}
+
+.sudoku-controls {
+    display: flex;
+    gap: 6%;
+    text-align: center;
+    align-items: baseline;
+    background-color: rgba(247, 247, 247, 0.555);
+    padding: 4px;
+    margin-left: 20%;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@media (max-width: 768px) {
+    .sudoku-controls {
+        width: 70%;
+    }
+}
+
+.sudoku-controls div {
+    padding: 6px;
+    border-right: 1px solid #8d8c8c;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.sudoku-number {
+    width: 44px;
+    height: 44px;
+    border: 1px solid black;
+    margin: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sudoku-number-selected {
+    background-color: rgb(60, 123, 182);
+}
+
+.sudoku-tile-start {
+    background-color: rgb(221, 243, 243);
+}
+
+.sudoku-horizontal-line {
+    border-bottom: 1px solid rgb(1, 3, 29);
+}
+
+.sudoku-vertical-line {
+    border-right: 1px solid rgb(3, 6, 43);
+}
+
+.sudoku-wrong {
+    color: rgb(245, 91, 91);
+}
+
+.sudoku-correct, #finished {
+    color: rgb(0, 141, 47);
+    font-weight: bolder;
+}
+
+.sudoku-alert {
+    position: fixed;
+    top: 35%;
+    left: 25%;
+    width: 50%;
+    outline: 0;
+    display: none;
+}
+
+/* Additional styling for the modal */
+.mode-alert {
+    margin-top: 20px;
+}
+
+.sudoku-modal-content {
+    background-color: rgba(0, 123, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+}
+
+.sudoku-modal-header {
+    background-color: rgba(0, 123, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sudoku-modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.sudoku-modal-title::first-letter {
+    text-transform: uppercase;
+}
+
+.sudoku-modal-body {
+    position: relative;
+    padding: 1rem;
+}
+
+/* Additional styling for the modal close button */
+.btn-close {
+    color: #fff;
+    background-color: rgba(0, 123, 255, 0.9);
+    border: none;
+    opacity: 1;
+    transition: opacity 0.3s;
+    font-size: 1.25rem;
+}
+
+.btn-close:hover {
+    color: #fff;
+    opacity: 0.7;
+}
+
+/* Styling for the 'Number Of Checks' and 'Grade' text */
+.text-light {
+    color: #fff;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+/* Additional styling for the modal overlay */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Additional styling for the modal body scrollbar */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+} 
+
+/*styling the timer */
+#timer {
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.sudoku-shadow-shade {
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    opacity: 0.9;
+}
+
+.sudoku-winner {
+    background: linear-gradient(to top right, rgb(3, 221, 3), rgb(126, 126, 128));
+}
+
+/* Additional styling for the Sudoku title */
+.sudoku-title {
+    font-size: 3rem; /* Increase font size for emphasis */
+    font-weight: bold;
+    color: #007BFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to right, #007BFF, #0056b3); /* Add a gradient background */
+    padding: 10px; /* Add some padding for spacing */
+    border-radius: 10px; /* Round the corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    text-align: center; /* Center the text */
+}
+
+/* Additional styling for Sudoku control buttons */
+.sudoku-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+#new-game {
+    margin-left: 15px;
+}
+
+/* Additional styling for Sudoku check count */
+.sudoku-checks {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007BFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for Sudoku control button hover effect */
+.sudoku-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for Sudoku control button active state */
+.sudoku-button:active {
+    background-color: #00479e;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
