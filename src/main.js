@@ -84,29 +84,34 @@ $(document).ready(() => {
         $(".checks-count").text(checks);
         let checker = [];
         let checker2 = [];
-
+    
         idArray.forEach((element) => {
             let numberTile = $("#" + element);
             let coords = element.split("-"); // ["0", "0"]
             let r = parseInt(coords[0]);
             let c = parseInt(coords[1]);
-
+    
+            if (board[r][c] != "-") {
+                // Skip tiles with predefined numbers
+                return;
+            }
+    
             if (answer[r][c] == numberTile.text()) {
                 numberTile.removeClass("sudoku-wrong").addClass("sudoku-correct").off("click", selectTile);
             } else {
                 numberTile.removeClass("sudoku-correct").addClass("sudoku-wrong");
             }
-
+    
             checker.push(answer[r][c]);
             checker2.push(numberTile.text());
         });
-
+    
         if (checker.join("") == checker2.join("")) {
             $(".mode-alert").show(1000);
             $("body").addClass("sudoku-winner");
             stopTimer();
             $("#check-button").off("click", Validate);
-
+    
             if (checks === 1) {
                 $(".grade").text("Perfect");
             } else if (checks >= 2 && checks <= 4) {
@@ -117,7 +122,7 @@ $(document).ready(() => {
                 $(".grade").text("Fair");
             }
         }
-    };
+    };    
 
     $("#check-button").on("click", Validate);
 
